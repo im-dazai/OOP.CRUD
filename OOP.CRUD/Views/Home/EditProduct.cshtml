@@ -1,0 +1,17 @@
+﻿@model OOP.CRUD.Entity.VM.TblProduct
+
+
+@using (Html.BeginForm("EditProduct", "Home", FormMethod.Post, htmlAttributes: new { @class = "form-group" }))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(x => x.Id, null, htmlAttributes: new { @class = "form-control" })
+
+    <label>Name</label>
+    @Html.TextBoxFor(x => x.Name, null, htmlAttributes: new { @class = "form-control" })
+
+
+    <label>Category</label>
+    @Html.TextBoxFor(x => x.Category, null, htmlAttributes: new { @class = "form-control" })
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+}

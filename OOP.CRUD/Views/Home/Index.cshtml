@@ -1,8 +1,27 @@
-﻿@{
+﻿@model List<OOP.CRUD.Entity.VM.TblProduct>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@Html.ActionLink("Create", "AddProduct", "Home", null, htmlAttributes: new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Category</td>
+            <td>
+                @Html.ActionLink("-", "EditProduct", "Home", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("x", "Delete", "Home", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
